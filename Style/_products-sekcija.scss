@@ -1,0 +1,479 @@
+.mobile-body-overlay {
+  background: rgba(black, 0.5);
+  min-height: 100vh;
+  padding: 0;
+  min-width: 100vw;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.products-hero {
+  &__img {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__wrapper {
+    &-title {
+      padding-top: 160px;
+      margin-bottom: 30px;
+    }
+
+    &-text {
+      text-align: center;
+      padding-bottom: 130px;
+    }
+  }
+}
+
+.products {
+  padding-bottom: 150px;
+  padding-top: 150px;
+
+  &__wrapper-header {
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .products__wrapper__sort-by-select2 {
+    background-color: #fff;
+    color: #222;
+    width: 300px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #999999;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 0 10px;
+    appearance: none;
+    background: url("../SVG/Arrow-Down.svg");
+    background-repeat: no-repeat;
+    background-position-x: right 20px;
+    background-position-y: 20px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 20px;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 30px;
+
+    &__card {
+      position: relative;
+      padding-top: 0;
+
+      &:hover {
+        transition: 0.3s ease-in-out;
+        box-shadow: 3px 4px 7px 2px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      &-quick-add {
+        position: absolute;
+        width: 55px;
+        height: 55px;
+        background: rgba(255, 255, 255, 0.7);
+        right: 0;
+        border-radius: 50%;
+        margin-top: 20px;
+        margin-right: 20px;
+
+        &:hover {
+          transform: scale(1.2);
+          background: #ed9121;
+          svg {
+            path {
+              fill: #fff;
+            }
+          }
+        }
+
+        svg {
+          display: block;
+          margin: auto;
+          transform: translateY(50%);
+        }
+      }
+
+      &-text-wrapper {
+        margin-top: 20px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        margin-top: 10px;
+      }
+      &-img {
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        padding-bottom: 140%;
+      }
+    }
+  }
+
+  &__filter {
+    padding-top: 77px;
+
+    // Checkbox input styling
+
+    &__checkbox {
+      input {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      &-icon {
+        width: 23px;
+        height: 23px;
+        border: 1px solid rgba(153, 153, 153, 0.7);
+        box-sizing: border-box;
+        border-radius: 5px;
+        background-color: #fff;
+        margin-right: 5px;
+        position: relative;
+        transition: all 0.2s ease;
+
+        &:before {
+          position: absolute;
+          background-image: url("../SVG/Checked.svg");
+          background-position: center;
+          background-size: cover;
+          width: 20px;
+          height: 20px;
+          left: 50%;
+          top: 50%;
+          content: "";
+          transform: translate(-50%, -50%);
+          font-size: 15px;
+          transition: all 0.2s ease;
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
+
+      input:checked + label {
+        .products__filter__checkbox-icon {
+          &:before {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+
+      input:disabled + label {
+        opacity: 0.8;
+        cursor: not-allowed;
+      }
+    }
+
+    &__text {
+      color: #333333;
+      font-size: 18px;
+      margin-left: 10px;
+    }
+
+    // End of checkbox input stlying
+
+    h4 {
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    hr {
+      margin: 0;
+      border: 1px solid #e5e5e5;
+    }
+  }
+
+  &__page-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 150px;
+
+    &-num {
+      padding-top: 5px;
+    }
+
+    a {
+      margin-left: 10px;
+      margin-right: 10px;
+      color: #999999;
+      text-decoration: none;
+      align-self: center;
+    }
+  }
+}
+
+.mobile__filter__accordion {
+  display: none;
+}
+
+.mobile-sort-by {
+  display: none;
+}
+
+@media (max-width: 750px) {
+  .mobile-sort-by {
+    display: block;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 10px;
+    position: relative;
+
+    h3 {
+      padding: 20px;
+    }
+
+    // Radio input styling
+
+    .radio-box {
+      input {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .radio-box {
+      vertical-align: middle;
+      margin-bottom: 15px;
+
+      .radio-icon {
+        width: 23px;
+        height: 23px;
+        border-radius: 50%;
+        border: 2px solid #a7a9ac;
+        background-color: #fff;
+        margin-right: 5px;
+        position: relative;
+        transition: all 0.3s ease;
+
+        &:before {
+          position: absolute;
+          background-image: url("../SVG/Radio-Circle.svg");
+          background-position: center;
+          background-size: cover;
+          left: 50%;
+          top: 50%;
+          content: "";
+          width: 15px;
+          height: 15px;
+          background-color: #20a0bc;
+          -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+          transition: all 0.3s ease;
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
+      label {
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      input:checked + label {
+        .radio-icon {
+          &:before {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+      input:disabled + label {
+        pointer-events: none;
+        opacity: 0.8;
+        cursor: not-allowed;
+      }
+      .radio-text {
+        margin-bottom: 0;
+        color: #333333;
+        font-size: 18px;
+      }
+    }
+
+    // End of radio input styling
+
+    &__radio {
+      display: none;
+      z-index: 999;
+      position: absolute;
+      width: 319px;
+      height: 216px;
+      background: #fff;
+      border-radius: 15px;
+      top: 10px;
+
+      hr {
+        width: 260px;
+        margin: 0 auto;
+      }
+
+      .radio-box {
+        margin-top: 10px;
+        &:nth-child(1) {
+          padding-top: 20px;
+        }
+        label {
+          flex-direction: row-reverse;
+          justify-content: space-between;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
+      &.popup {
+        display: block;
+        z-index: 1001;
+      }
+    }
+
+    &__flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 319px;
+      height: 48px;
+      border: 1px solid #e5e5e5;
+      border-radius: 15px;
+
+      p {
+        margin-left: 30px;
+      }
+
+      svg {
+        margin-right: 18px;
+      }
+    }
+  }
+
+  .products {
+    padding-top: 50px;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      padding: 0 28px;
+    }
+
+    &__wrapper-header {
+      display: none;
+    }
+
+    &__filter {
+      display: none;
+    }
+
+    &__cards {
+      display: flex;
+      flex-direction: column;
+
+      &__card-text-wrapper {
+        text-align: center;
+        padding: 0;
+      }
+    }
+  }
+
+  .products__filter-mobile {
+    hr {
+      margin-bottom: 20px;
+      width: 260px;
+    }
+    .products__filter__checkbox-icon {
+      margin: 0;
+    }
+    p,
+    label {
+      margin: 0;
+    }
+    h3 {
+      padding-left: 20px;
+      padding-top: 25px;
+      padding-bottom: 10px;
+    }
+    h4 {
+      padding-top: 10px;
+      padding-left: 20px;
+      padding-bottom: 10px;
+    }
+    display: none;
+    position: absolute;
+    background: #fff;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 319px;
+    top: 30px;
+
+    &.popup {
+      display: block;
+      z-index: 1001;
+    }
+  }
+
+  .mobile__filter__accordion {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 30px;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 319px;
+      height: 48px;
+      border: 1px solid #e5e5e5;
+      border-radius: 15px;
+
+      p {
+        margin-left: 30px;
+      }
+
+      svg {
+        margin-right: 18px;
+      }
+    }
+    .products__filter__checkbox label {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  .filter-button {
+    width: 279px;
+    margin: 0 20px 20px;
+  }
+}

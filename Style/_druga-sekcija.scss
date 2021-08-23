@@ -1,0 +1,43 @@
+.section2 {
+  padding-top: 150px;
+  padding-bottom: 150px;
+
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 70px;
+
+    p {
+      width: 230px;
+    }
+  }
+
+  &__img-wrap {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__text-wrapper {
+    margin-bottom: 20px;
+    text-align: center;
+
+    p {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 728px) {
+  .section2 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    &__cards {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+    }
+  }
+}

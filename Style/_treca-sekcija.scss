@@ -1,0 +1,45 @@
+.section3 {
+  &__container {
+    display: flex;
+  }
+
+  &__img {
+    flex: 0 50%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__text-wrapper {
+    flex: 0 50%;
+    padding-top: 90px;
+    padding-bottom: 115px;
+    max-width: 430px;
+    margin: 0 auto;
+
+    &-desc {
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .section3 {
+    &__container {
+      flex-direction: column;
+    }
+
+    &__img {
+      padding-bottom: 420px;
+    }
+
+    &__text-wrapper {
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 50px;
+      padding: 0 28px;
+      h2 {
+        padding: 0 10px;
+      }
+    }
+  }
+}
